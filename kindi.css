@@ -1,0 +1,274 @@
+/* General Setup */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #111; /* Dark, spooky background *//* General Setup */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #1a0000 0%, #000 80%);
+  overflow: hidden;
+  margin: 0;
+}
+
+/* Poster Container */
+.poster-container {
+  position: relative;
+  width: 380px;
+  height: 560px;
+  background: linear-gradient(180deg, #000 20%, #1a0000 100%);
+  border: 5px solid #ff6600;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 0 60px rgba(255, 102, 0, 0.5);
+  overflow: hidden;
+}
+
+/* Atmospheric Fog */
+.fog {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1), transparent 70%);
+  animation: fogMove 20s infinite linear;
+  opacity: 0.3;
+}
+
+@keyframes fogMove {
+  from { transform: translate(-50%, -50%) scale(1); }
+  to { transform: translate(0%, 0%) scale(1.2); }
+}
+
+/* Floating Bats */
+.bat {
+  width: 40px;
+  height: 20px;
+  background: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  clip-path: polygon(0 50%, 25% 0, 50% 50%, 75% 0, 100% 50%, 75% 100%, 50% 50%, 25% 100%);
+  animation: fly 8s linear infinite;
+  opacity: 0.6;
+}
+
+.bat:nth-child(1) { animation-delay: 0s; top: 10%; left: -10%; }
+.bat:nth-child(2) { animation-delay: 3s; top: 25%; left: -15%; }
+.bat:nth-child(3) { animation-delay: 6s; top: 40%; left: -20%; }
+
+@keyframes fly {
+  0% { transform: translateX(0) scale(1); }
+  50% { transform: translateX(450px) scale(1.2); }
+  100% { transform: translateX(900px) scale(1); }
+}
+
+/* Pumpkin */
+.pumpkin {
+  width: 200px;
+  height: 200px;
+  background-color: #ff6600;
+  border-radius: 50% / 60% 60% 40% 40%;
+  margin: 50px auto 20px;
+  position: relative;
+  box-shadow: 0 10px 0 #993300;
+  animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+  0%, 100% { box-shadow: 0 0 30px rgba(255, 140, 0, 0.9), inset 0 0 20px rgba(255, 255, 0, 0.2); }
+  50% { box-shadow: 0 0 60px rgba(255, 255, 0, 1), inset 0 0 30px rgba(255, 255, 0, 0.4); }
+}
+
+/* Pumpkin Stem */
+.stem {
+  width: 25px;
+  height: 35px;
+  background-color: #228b22;
+  border-radius: 5px 5px 0 0;
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-8deg);
+}
+
+/* Face */
+.face {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+}
+
+/* Eyes and Mouth */
+.eye {
+  width: 25px;
+  height: 35px;
+  background-color: yellow;
+  position: absolute;
+  top: 30px;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  box-shadow: 0 0 20px yellow;
+  animation: glow 1.2s infinite alternate;
+}
+
+.eye.left { left: 25px; }
+.eye.right { right: 25px; }
+
+.mouth {
+  width: 90px;
+  height: 45px;
+  background-color: yellow;
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+  box-shadow: 0 0 20px yellow;
+  animation: glow 1.2s infinite alternate;
+}
+
+/* Glowing Animation */
+@keyframes glow {
+  from { opacity: 0.6; filter: brightness(1); }
+  to { opacity: 1; filter: brightness(1.5); }
+}
+
+/* Title */
+.title {
+  font-family: 'Nosifer', cursive;
+  color: #ff6600;
+  font-size: 2.5em;
+  text-shadow: 0 0 10px #ff3300, 0 0 20px #ff6600;
+  animation: pulse 2s infinite alternate;
+  margin: 0;
+}
+
+@keyframes pulse {
+  from { color: #ff6600; text-shadow: 0 0 10px #ff3300; }
+  to { color: #ff3300; text-shadow: 0 0 20px #ff6600; }
+}
+
+/* Date and Tagline */
+.date {
+  color: #ccc;
+  font-size: 1.2em;
+  font-family: 'Creepster', cursive;
+  margin: 5px 0;
+}
+
+.tagline {
+  color: #ff9900;
+  font-family: 'Creepster', cursive;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px #ff6600;
+}
+
+    margin: 0;
+}
+
+.poster-container {
+    width: 350px;
+    height: 500px;
+    background-color: #000;
+    border: 5px solid #ff6600;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(255, 102, 0, 0.5); /* Outer glow */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Text Styling */
+.title {
+    font-family: 'Nosifer', cursive; /* A spooky font */
+    color: #ff6600;
+    font-size: 3em;
+    margin-top: 10px;
+    text-shadow: 0 0 5px #ff0000;
+    animation: pulse 2s infinite alternate; /* Simple text animation */
+}
+
+.date {
+    color: #999;
+    font-size: 1.2em;
+    margin-top: 5px;
+    font-family: sans-serif;
+}
+
+/* Jack-O'-Lantern Styling */
+.pumpkin {
+    width: 200px;
+    height: 200px;
+    background-color: #ff6600;
+    border-radius: 50% / 60% 60% 40% 40%; /* Oval shape for pumpkin */
+    margin: 40px auto 30px;
+    position: relative;
+    box-shadow: 0 10px 0 #993300; /* Bottom shadow for depth */
+}
+
+.stem {
+    width: 20px;
+    height: 30px;
+    background-color: #228b22;
+    border-radius: 5px 5px 0 0;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-5deg);
+}
+
+.face {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+}
+
+/* Glowing Face Elements */
+.eye {
+    width: 20px;
+    height: 30px;
+    background-color: yellow;
+    position: absolute;
+    top: 30px;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Triangular eye shape */
+    box-shadow: 0 0 10px yellow; /* Inner glow */
+}
+
+.eye.left {
+    left: 30px;
+}
+
+.eye.right {
+    right: 30px;
+}
+
+.mouth {
+    width: 80px;
+    height: 40px;
+    background-color: yellow;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%); /* Jagged mouth shape */
+    box-shadow: 0 0 15px yellow;
+}
+
+/* Optional CSS Animation */
+@keyframes pulse {
+    from { color: #ff6600; }
+    to { color: #ff0000; }
+}
